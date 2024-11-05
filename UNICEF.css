@@ -1,0 +1,1139 @@
+/*font-family: Gill Sans,Gill Sans MT,Calibri,sans-serif; 
+colores 
+azul  #033ab7
+verde #007a06
+rosa #e6287d
+amarillo #f8ac15
+rojo #ff0000
+#f7f2e4;
+
+*/
+
+:root {
+    --azul: #033ab7;
+    --verde: #007a06;
+    --rosa: #e6287d;
+    --amarillo: #f8ac15;
+    --rojo: #ff0000;
+    --fondo: #f7f2e4;
+}
+
+/*no mover*/
+
+@media screen and (orientation:landscape) {
+    .rotate-message {
+        display: none;
+        /* Oculta el mensaje en modo vertical */
+    }
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    font-family: Gill Sans, Gill Sans MT, Calibri, sans-serif;
+    background-image: linear-gradient(#343232a0, #1b1818aa), image-set("imgs/saltillo1.png");
+    margin: 0;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+    z-index: 1;
+    min-height: 100%;
+    text-align: justify;
+    /* Asegura que cubra toda la altura de la ventana */
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: inherit;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    filter: blur(3px);
+    /* Ajusta el valor para más o menos desenfoque */
+    z-index: -1;
+}
+
+body::-webkit-scrollbar {
+    background-color: var(--azul);
+    width: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #ffffff;
+    border-radius: 5px;
+    border-right: 1px solid #033ab7;
+    border-left: 1px solid #033ab7;
+    width: 10px;
+}
+
+/* Personalizar las flechas del scrollbar */
+body::-webkit-scrollbar-button {
+    background-color: #033ab7;
+    width: 10px;
+    height: 16px;
+    /* Ajusta la altura de los botones según sea necesario */
+}
+
+/* Personalizar la flecha hacia arriba */
+body::-webkit-scrollbar-button:single-button:vertical:decrement {
+    background-color: #033ab7;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" fill="white"><path d="M8 6l4 4H4z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Personalizar la flecha hacia abajo */
+body::-webkit-scrollbar-button:single-button:vertical:increment {
+    background-color: #033ab7;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" fill="white"><path d="M8 10l-4-4h8z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Personalizar la flecha hacia la izquierda (si es necesario) */
+body::-webkit-scrollbar-button:single-button:horizontal:decrement {
+    background-color: #033ab7;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" fill="white"><path d="M6 8l4 4V4z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Personalizar la flecha hacia la derecha (si es necesario) */
+body::-webkit-scrollbar-button:single-button:horizontal:increment {
+    background-color: #033ab7;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" fill="white"><path d="M10 8l-4-4v8z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    background-color: var(--azul);
+    position: fixed;
+    top: 10px;
+    left: 20px;
+    right: 20px;
+    z-index: 1000;
+    border-radius: 10px;
+    margin: 10px 330px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    /* Añade transición para animación */
+}
+
+header.hidden {
+    transform: translateY(-100%);
+    /* Mueve el header hacia arriba */
+    opacity: 0;
+    /* Hace el header transparente */
+}
+
+.img-saltillo {
+
+    height: 20px;
+    display: flex;
+    align-items: center;
+    min-height: 50vh;
+    padding: 250px 0 0 0;
+}
+
+
+
+.logo {
+    display: flex;
+    margin-left: 5px;
+
+}
+
+.logo a:hover {
+    transform: scale(1.1);
+    color-interpolation-filters: black;
+}
+
+.logo img {
+    height: 40px;
+    width: 35px;
+    max-width: 100%;
+    filter: drop-shadow(0px 0px 20px);
+}
+
+/*NAVBAR */
+
+/* Estilos del menú principal */
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar ul {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar ul li {
+    margin: 0 10px;
+}
+
+.menu-principal a {
+    font-size: 18px;
+    padding: 5px;
+    color: white;
+    display: block;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.menu-principal li a:hover {
+    color: #f8ac15;
+    transform: scale(1.1);
+}
+
+.menu-principal {
+    position: relative;
+    /* Necesario para que el submenú se posicione relativo a su padre */
+}
+
+/* Estilos para el submenú */
+/* Estilos para el submenú */
+.sub-menu {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 0.1s, opacity 0.3s ease;
+    position: absolute;
+    top: 100%;
+    /* Cambiado de 130% a 100% para que aparezca justo debajo */
+    left: 0;
+    margin: 0;
+    padding: 10px 0;
+    /* Añadido padding vertical para mejor espaciado */
+    background-color: var(--amarillo);
+    font-size: 16px;
+    /* Cambiado a 16px para consistencia con los enlaces del submenú */
+    list-style-type: none;
+    text-align: left;
+    flex-direction: column;
+    border-radius: 10px;
+    min-width: 200px;
+    /* Añadido para asegurar un ancho mínimo */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    /* Añadido para dar profundidad */
+}
+
+.sub-menu li {
+    display: block;
+    margin: 0;
+    padding: 0;
+    /* Cambiado a 0 */
+}
+
+.sub-menu li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px 20px;
+    /* Movido el padding aquí para mejor área de clic */
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    /* Añadido para transición suave */
+}
+
+.sub-menu li a:hover {
+    color: var(--azul);
+    background-color: rgba(255, 255, 255, 0);
+    /* Añadido para mejor feedback visual */
+}
+
+/* Añadir esta regla para mostrar el submenú al pasar el mouse */
+.menu-item:hover .sub-menu,
+.menu-principal>li:hover .sub-menu {
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 0s;
+}
+
+/* Asegurar que los elementos del menú principal tengan posición relativa */
+.menu-principal>li {
+    position: relative;
+}
+
+/* Muestra el submenú al pasar el mouse sobre el elemento padre */
+.menu-item:hover .sub-menu {
+    visibility: visible;
+    opacity: 1;
+}
+
+@media (max-width: 1024px) {
+    /* Ajustes para el menú principal en móvil */
+    .menu {
+        position: relative;
+        z-index: 1000; /* Asegura que el menú esté por encima del contenido */
+    }
+
+    .navbar {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--azul); /* Usa el color de fondo del navbar */
+        padding: 10px 0;
+    }
+
+    #menu:checked ~ .navbar {
+        display: block;
+    }
+
+    .menu label {
+        display: block;
+        z-index: 1001;
+    }
+
+    .menu-principal {
+        flex-direction: column;
+        width: 100%;
+        background-color: var(--amarillo);
+    }
+
+    .menu-principal > li {
+        width: 100%;
+        margin: 0;
+    }
+
+  
+
+    /* Ajustes para el submenú en móvil */
+    .sub-menu {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        visibility: hidden;
+        opacity: 0;
+        max-height: 0;
+        transition: max-height 0.3s ease, opacity 0.3s ease, visibility 0s 0.3s;
+        border-radius: 10px;
+        box-shadow: none;
+        overflow: hidden;
+    }
+
+    .menu-principal > li:hover .sub-menu,
+    .menu-item:hover .sub-menu {
+        visibility: visible;
+        opacity: 1;
+        max-height: 1000px;
+        transition: max-height 0.3s ease, opacity 0.3s ease, visibility 0s;
+
+    }
+
+    .sub-menu li {
+        padding: 0;
+    }
+
+
+    .sub-menu li a {
+        padding: 12px 20px;
+        font-size: 14px;
+
+    
+    }
+
+    /* Asegura que el contenido principal no se superponga */
+    .container {
+        position: relative;
+        z-index: 1;
+    }
+
+    /* Ajustes para el icono del menú */
+    .menu-icono {
+        width: 25px;
+        display: block;
+    }
+
+    /* Ajuste para el logo */
+    .logo {
+        z-index: 1001;
+        position: relative;
+    }
+}
+
+#menu {
+    display: none;
+}
+
+.menu-icono {
+    width: 25px;
+}
+
+.menu label {
+    cursor: pointer;
+    display: none;
+}
+
+
+/*///////////////////////////////*/
+
+
+
+
+.img-c body, html {
+    
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  
+}
+.img-c {
+    background-image: url(imgs/munconferencia.jpg);
+    background-size: cover; /* Esto asegura que la imagen cubra todo el contenedor sin distorsión */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    position: relative;
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+}
+
+
+.header-content {
+    background-color: #00000051;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+.header-txt {
+    text-align: center;
+    
+}
+.header-txt h1 {
+    color:white;
+    font-size: 100px;
+    text-shadow: 2px 2px 4px rgb(0, 0, 0);
+    margin: 0;
+}
+
+.separador1 {
+    height: 30px;
+    /* Ajusta la altura para hacer el separador más delgado */
+    width: 100%;
+    overflow: hidden;
+    /* Asegúrate de que no haya desbordamiento */
+    padding: 0;
+    margin: 0;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+}
+
+.separador1 img {
+    width: 100%;
+    /* Hace que la imagen abarque todo el ancho */
+    height: auto;
+    /* Mantiene la proporción de la imagen */
+}
+
+
+.img-contacto body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
+    color: #333;
+}
+
+
+
+/* About Section */
+.location {
+    padding: 50px 0px;
+    display: flex;
+    text-align: justify;
+    margin-bottom: -30px;
+}
+
+@media(min-width:1366px){
+
+    .location{
+       margin: 0 200px;
+    
+    }
+}
+
+
+.location-content p {
+    font-size: 22px;
+    color: #fff;
+    margin: 0;
+    padding: 30px;
+
+}
+
+/* Links de contacto */
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    .about-content p {
+        font-size: 17px;
+    }
+
+}
+
+
+/* apartado de redes sociales  */
+.social-section {
+    text-align: center;
+    padding: 15px;
+    background-color: #f4f4f4;
+    border-radius: 100px;
+    margin: 30px auto 80px; /* Cambiado para centrar automáticamente */
+    max-width: 1200px; /* Establecer un ancho máximo */
+}
+
+.social-section h2 {
+    color: #333;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.social-section p {
+    color: #555;
+    font-size: 17px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap; /* Permitir que los iconos se ajusten a varias líneas si es necesario */
+}
+
+.social-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #ddd;
+    color: white;
+    font-size: 24px;
+}
+
+.social-icon.fb {
+    background-color: #e6287d;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icon.ig {
+    background-color: #007a06;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icon.x {
+    background-color: #033ab7;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icon.tt {
+    background-color: #f8ac15;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icon.fb:hover {
+    background-color: #3b5998;
+    transform: scale(1.1);
+}
+
+.social-icon.ig:hover {
+    background-color: #F56040;
+    transform: scale(1.1);
+}
+
+.social-icon.x:hover {
+    background-color: #000000;
+    transform: scale(1.1);
+}
+
+.social-icon.tt:hover {
+    background-color: #000000;
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .social-section {
+        padding: 20px; /* Añadir más espacio en móviles */
+        margin-left: 20px; /* Reducir márgenes laterales */
+        margin-right: 20px; /* Reducir márgenes laterales */
+        width: auto; /* Hacer que el ancho sea automático */
+    }
+    
+    .social-icon {
+        width: 40px; /* Reducir el tamaño de los iconos en pantallas pequeñas */
+        height: 40px; /* Reducir el tamaño de los iconos en pantallas pequeñas */
+        font-size: 20px; /* Reducir el tamaño del texto en los iconos */
+    }
+}
+
+
+/* footer */
+.footer {
+    
+    background-color: #191a1f;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer h2 {
+    color: whitesmoke;
+}
+
+footer {
+   
+    margin-top: 0;
+    background-color: #141b2c;
+    color: whitesmoke;
+    padding: 30px 0;
+    text-align: center;
+    font-family: Gill Sans, Gill Sans MT, Calibri, sans-serif;
+    border-top: 1px solid #f8ac15;
+    
+}
+
+.separador2 {
+    height: 30px;
+    /* Ajusta la altura para hacer el separador más delgado */
+    width: 100%;
+    overflow: hidden;
+    /* Asegúrate de que no haya desbordamiento */
+    padding: 0;
+    margin: 0;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+}
+
+.separador2 img {
+    width: 100%;
+    /* Hace que la imagen abarque todo el ancho */
+    height: auto;
+    /* Mantiene la proporción de la imagen */
+}
+
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+    flex-wrap: wrap;
+}
+
+.footer-left {
+    flex: 1;
+}
+
+.footer-logo {
+    width: 120px;
+    margin-right: 15px;
+}
+
+.footer-center {
+    flex: 2;
+    text-align: center;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 5px;
+    display: inline-block;
+}
+
+.footer-links li {
+    display: inline;
+    margin-right: 15px;
+}
+
+.footer-links li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.footer-links li a:hover {
+    color: #f8ac15;
+}
+
+.footer-center p {
+    font-size: 12px;
+    margin-top: 10px;
+    color: whitesmoke;
+}
+
+.footer-right {
+    flex: 1;
+    text-align: right;
+}
+
+.footer-icons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+    /* Aumenta el espacio entre los iconos */
+}
+
+.footer-icons a {
+    color: whitesmoke;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.footer-icons a.facebook {
+    width: 1px;
+    /* Reduce el tamaño del icono de Facebook */
+}
+
+.footer-icons a:hover {
+    color: #f8ac15;
+}
+
+.footer-icons a:hover .icon-x {
+    filter: invert(30%) sepia(100%) saturate(747%) hue-rotate(330deg) brightness(95%) contrast(101%);
+}
+
+.footer-left img {
+    margin-top: 5px;
+    border-radius: 10px;
+}
+
+/* ressoluciones diferentes */
+@media (min-width: 767px) and (max-width: 1365px) {
+
+    /* Estilos para el icono del menú */
+    /* Estilos para el icono del menú */
+
+    /* Ajustes para pantallas medianas y pequeñas */
+
+    body {
+        display: block;
+    }
+
+    /* Header */
+    header {
+        margin: 20px 10px;
+        border-radius: 10px;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+
+    /* Logo */
+    .logo {
+        margin-left: 20px;
+    }
+
+    /* Menú de navegación */
+    .navbar {
+        margin-left: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        position: fixed;
+        top: 70px;
+        right: 10px;
+        height: auto;
+        border-radius: 10px;
+        width: 250px;
+        transform: translateX(100%);
+        transition: transform 0.3s ease, opacity 0.3s ease;
+        opacity: 1;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .navbar ul li {
+        width: 100%;
+    }
+
+    .navbar ul li a {
+        font-size: 18px;
+        padding: 15px;
+        color: white;
+        display: block;
+        font-weight: 600;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    .navbar ul li a#contacto {
+        background: var(--azul);
+        color: white;
+        font-size: 18px;
+        padding: 6px 10px;
+        display: inline-block;
+        font-weight: bold;
+        border-radius: 4px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        margin-left: 10px;
+        margin-bottom: 10px;
+    }
+
+    .navbar ul li a#contacto:hover {
+        color: #f8ac15;
+        background: white;
+        transform: scale(1.1);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .navbar ul li a:hover {
+        color: var(--azul);
+        transform: scale(1.1);
+    }
+
+    /* Checkbox y etiqueta para menú */
+    #menu {
+        display: none;
+    }
+
+    .menu-icono {
+        width: 35px;
+        margin-top: 2px;
+        margin-right: 20px;
+    }
+
+    .menu label {
+        cursor: pointer;
+        display: block;
+    }
+    
+
+    .header-txt h1 {
+        font-size: 50px;
+        margin-top: 20px;
+    
+    }
+
+
+
+    #menu:checked~.navbar {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+   
+
+    .social-section {
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
+
+    .social-section h2 {
+        color: #333;
+        font-size: 30px;
+        margin-bottom: 10px;
+    }
+
+    .social-section p {
+        color: #555;
+        font-size: 20px;
+        margin-bottom: 20px;
+        font-weight: bold;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 0 20px;
+    }
+
+    .footer-left img {
+        width: 250px;
+    }
+
+    .footer-left,
+    .footer-center,
+    .footer-right {
+        text-align: center;
+        padding-bottom: -60px;
+        margin-bottom: 30px;
+        font-size: 20px;
+    }
+
+    .footer-left {
+        padding-top: 20px;
+    }
+
+    .footer-center {
+        padding-bottom: -90px;
+    }
+
+    .footer-center ul {
+        padding-bottom: 10px;
+    }
+
+    .footer-center p {
+        font-size: 20px;
+    }
+
+    .footer-right {
+        margin-top: -30px;
+    }
+
+    .footer-links {
+        display: block;
+    }
+
+    .footer-links li {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .footer-icons {
+        justify-content: center;
+    }
+
+    
+
+}
+
+
+@media (max-width: 767px) {
+
+    /* Estilos para el icono del menú */
+    /* Estilos para el icono del menú */
+
+    /* Ajustes para pantallas medianas y pequeñas */
+
+        /* Header */
+        header {
+            margin: 20px 10px;
+            border-radius: 10px;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+    
+        /* Logo */
+        .logo {
+            margin-left: 20px;
+        }
+    
+        /* Menú de navegación */
+        .navbar {
+            margin-left: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            position: fixed;
+            top: 70px;
+            right: 10px;
+            height: auto;
+            border-radius: 10px;
+            width: 250px;
+            transform: translateX(100%);
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            opacity: 1;
+        }
+    
+        .navbar ul {
+            flex-direction: column;
+            width: 100%;
+        }
+    
+        .navbar ul li {
+            width: 100%;
+        }
+    
+        .navbar ul li a {
+            font-size: 18px;
+            padding: 15px;
+            color: white;
+            display: block;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            font-family: 'Roboto', sans-serif;
+        }
+    
+        .navbar ul li a:hover {
+            color: var(--azul);
+            transform: scale(1.1);
+        }
+    
+        /* Checkbox y etiqueta para menú */
+        #menu {
+            display: none;
+        }
+    
+        .menu-icono {
+            width: 35px;
+            margin-top: 2px;
+            margin-right: 20px;
+        }
+    
+        .menu label {
+            cursor: pointer;
+            display: block;
+        }
+    
+    
+    
+        #menu:checked~.navbar {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+    .separador1 {
+        height: 10px;
+        /* Ajusta la altura para hacer el separador más delgado */
+        width: 100%;
+
+    }
+
+    .separador2 {
+        height: 10px;
+        /* Ajusta la altura para hacer el separador más delgado */
+        width: 100%;
+
+    }
+
+    /* Ajustes de contenido principal */
+    .header {
+        min-height: 0vh;
+        padding: 100px 30px;
+    }
+
+    .header-txt h1 {
+        
+        margin-top: 100px;
+    
+    }
+
+
+    .header-txt {
+        padding: 0 20px;
+        padding-bottom: 100px;
+    }
+
+    .header-txt h1 {
+        font-size: 50px;
+    }
+
+    .header-txt p {
+        font-size: 20px;
+    }
+
+    .footer {
+        align-items: center;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 0 20px;
+    }
+
+    .footer-left img {
+        width: 250px;
+        align-items: center;
+
+    }
+
+    .footer-left,
+    .footer-center,
+    .footer-right {
+        text-align: center;
+        padding-bottom: -60px;
+        margin-bottom: 30px;
+        font-size: 20px;
+        align-items: center;
+    }
+
+    .footer-left {
+        padding-top: 20px;
+        align-items: center;
+        padding-left: 10px;
+    }
+
+    .footer-center {
+        padding-bottom: -90px;
+        align-items: center;
+        padding-left: 15px;
+    }
+
+    .footer-center ul {
+        padding-bottom: 10px;
+    }
+
+    .footer-center p {
+        font-size: 15px;
+    }
+
+    .footer-right {
+        margin-top: -30px;
+        align-items: center;
+    }
+
+    .footer-links {
+        display: block;
+    }
+
+    .footer-links li {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .footer-icons {
+        justify-content: center;
+    }
+
+
+
+}
